@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package.json .
+RUN npm install
+COPY . .
+
+CMD [ "npm", "start" ]
+
+# To use this file instead of 'Dockerfile': docker build -f Dockerfile.dev .
+# To run docker with volumes : docker run -p 3000:3000 -v $'pwd':/app <image_id>
+# OR: docker run -p 3000:3000 -v pwd:/app <image_id>
+# OR: docker run -p 3000:3000 -v "/$(pwd):/app" <image_id>
