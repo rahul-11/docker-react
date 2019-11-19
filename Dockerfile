@@ -12,7 +12,7 @@ RUN npm run build
 # /app/build <--- contains al the generated static files to used by nginx
 # Run Phase starts
 FROM nginx
-
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # there is no need to start nginx manually,
